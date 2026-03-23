@@ -100,7 +100,7 @@ jobs:
         run: npx electron-rebuild -f -m node_modules/node-pty
 
       - name: Build Vite + package Linux
-        run: npx vite build && npx electron-builder --linux AppImage deb
+        run: npx vite build && npx electron-builder --linux AppImage deb rpm
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -111,6 +111,7 @@ jobs:
           path: |
             release/*.AppImage
             release/*.deb
+            release/*.rpm
 
   # ─── Create GitHub release ───────────────────────────────────────────────────
   release:
@@ -139,5 +140,6 @@ jobs:
             dist-release/*.exe
             dist-release/*.AppImage
             dist-release/*.deb
+            dist-release/*.rpm
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
