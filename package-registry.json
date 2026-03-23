@@ -1,0 +1,472 @@
+[
+  {
+    "id": "mariadb",
+    "label": "MariaDB",
+    "icon": "database",
+    "versions": [
+      {
+        "version": "12.0.1",
+        "label": "MariaDB 12.0.1 (Latest)",
+        "downloads": {
+          "win32": "https://archive.mariadb.org/mariadb-12.0.1/winx64-packages/mariadb-12.0.1-winx64.zip",
+          "darwin": "https://archive.mariadb.org/mariadb-12.0.1/bintar-macos14-arm64/mariadb-12.0.1-macos14-arm64.tar.gz",
+          "linux": "https://archive.mariadb.org/mariadb-12.0.1/bintar-linux-systemd-x86_64/mariadb-12.0.1-linux-systemd-x86_64.tar.gz"
+        }
+      },
+      {
+        "version": "11.4.5",
+        "label": "MariaDB 11.4.5 LTS",
+        "lts": true,
+        "downloads": {
+          "win32": "https://archive.mariadb.org/mariadb-11.4.5/winx64-packages/mariadb-11.4.5-winx64.zip",
+          "darwin": "https://archive.mariadb.org/mariadb-11.4.5/bintar-macos14-arm64/mariadb-11.4.5-macos14-arm64.tar.gz",
+          "linux": "https://archive.mariadb.org/mariadb-11.4.5/bintar-linux-systemd-x86_64/mariadb-11.4.5-linux-systemd-x86_64.tar.gz"
+        }
+      },
+      {
+        "version": "11.2.6",
+        "label": "MariaDB 11.2.6",
+        "downloads": {
+          "win32": "https://archive.mariadb.org/mariadb-11.2.6/winx64-packages/mariadb-11.2.6-winx64.zip",
+          "darwin": "https://archive.mariadb.org/mariadb-11.2.6/bintar-macos14-arm64/mariadb-11.2.6-macos14-arm64.tar.gz",
+          "linux": "https://archive.mariadb.org/mariadb-11.2.6/bintar-linux-systemd-x86_64/mariadb-11.2.6-linux-systemd-x86_64.tar.gz"
+        }
+      },
+      {
+        "version": "10.11.11",
+        "label": "MariaDB 10.11.11 LTS",
+        "lts": true,
+        "downloads": {
+          "win32": "https://archive.mariadb.org/mariadb-10.11.11/winx64-packages/mariadb-10.11.11-winx64.zip",
+          "darwin": "https://archive.mariadb.org/mariadb-10.11.11/bintar-macos14-arm64/mariadb-10.11.11-macos14-arm64.tar.gz",
+          "linux": "https://archive.mariadb.org/mariadb-10.11.11/bintar-linux-systemd-x86_64/mariadb-10.11.11-linux-systemd-x86_64.tar.gz"
+        }
+      },
+      {
+        "version": "10.6.21",
+        "label": "MariaDB 10.6.21 LTS",
+        "lts": true,
+        "downloads": {
+          "win32": "https://archive.mariadb.org/mariadb-10.6.21/winx64-packages/mariadb-10.6.21-winx64.zip",
+          "darwin": "https://archive.mariadb.org/mariadb-10.6.21/bintar-macos14-arm64/mariadb-10.6.21-macos14-arm64.tar.gz",
+          "linux": "https://archive.mariadb.org/mariadb-10.6.21/bintar-linux-systemd-x86_64/mariadb-10.6.21-linux-systemd-x86_64.tar.gz"
+        }
+      }
+    ]
+  },
+  {
+    "id": "nginx",
+    "label": "Nginx",
+    "icon": "server",
+    "versions": [
+      {
+        "version": "1.27.4",
+        "label": "Nginx 1.27.4",
+        "lts": false,
+        "downloads": {
+          "win32": "https://nginx.org/download/nginx-1.27.4.zip",
+          "darwin": "https://nginx.org/download/nginx-1.27.4.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/nginx-v1.27.4/nginx-1.27.4-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "1.26.3",
+        "label": "Nginx 1.26.3",
+        "lts": true,
+        "downloads": {
+          "win32": "https://nginx.org/download/nginx-1.26.3.zip",
+          "darwin": "https://nginx.org/download/nginx-1.26.3.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/nginx-v1.26.3/nginx-1.26.3-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "1.24.0",
+        "label": "Nginx 1.24.0",
+        "lts": true,
+        "downloads": {
+          "win32": "https://nginx.org/download/nginx-1.24.0.zip",
+          "darwin": "https://nginx.org/download/nginx-1.24.0.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/nginx-v1.24.0/nginx-1.24.0-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "1.22.1",
+        "label": "Nginx 1.22.1",
+        "lts": false,
+        "downloads": {
+          "win32": "https://nginx.org/download/nginx-1.22.1.zip",
+          "darwin": "https://nginx.org/download/nginx-1.22.1.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/nginx-v1.22.1/nginx-1.22.1-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "1.20.2",
+        "label": "Nginx 1.20.2",
+        "lts": false,
+        "downloads": {
+          "win32": "https://nginx.org/download/nginx-1.20.2.zip",
+          "darwin": "https://nginx.org/download/nginx-1.20.2.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/nginx-v1.20.2/nginx-1.20.2-native-linux-x64.tar.gz"
+        }
+      }
+    ]
+  },
+  {
+    "id": "php",
+    "label": "PHP",
+    "icon": "code",
+    "versions": [
+      {
+        "version": "8.6.0",
+        "label": "PHP 8.6.0",
+        "lts": false,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-8.6.0-nts-Win32-vs16-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/8.6/php_8.6.0_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v8.6.0/php-8.6.0-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "8.5.4",
+        "label": "PHP 8.5.4",
+        "lts": false,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-8.5.4-nts-Win32-vs16-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/8.5/php_8.5.4_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v8.5.4/php-8.5.4-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "8.4.4",
+        "label": "PHP 8.4.4",
+        "lts": false,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-8.4.4-nts-Win32-vs16-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/8.4/php_8.4.4_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v8.4.4/php-8.4.4-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "8.3.17",
+        "label": "PHP 8.3.17",
+        "lts": true,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-8.3.17-nts-Win32-vs16-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/8.3/php_8.3.17_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v8.3.17/php-8.3.17-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "8.2.27",
+        "label": "PHP 8.2.27",
+        "lts": true,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-8.2.27-nts-Win32-vs16-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/8.2/php_8.2.27_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v8.2.27/php-8.2.27-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "8.1.31",
+        "label": "PHP 8.1.31",
+        "lts": false,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-8.1.31-nts-Win32-vs16-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/8.1/php_8.1.31_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v8.1.31/php-8.1.31-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "8.0.30",
+        "label": "PHP 8.0.30",
+        "lts": false,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-8.0.30-nts-Win32-vs16-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/8.0/php_8.0.30_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v8.0.30/php-8.0.30-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "7.4.33",
+        "label": "PHP 7.4.33",
+        "lts": false,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-7.4.33-nts-Win32-vc15-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/7.4/php_7.4.33_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v7.4.33/php-7.4.33-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "7.3.33",
+        "label": "PHP 7.3.33",
+        "lts": false,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-7.3.33-nts-Win32-vc15-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/7.3/php_7.3.33_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v7.3.33/php-7.3.33-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "7.2.34",
+        "label": "PHP 7.2.34",
+        "lts": false,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-7.2.34-nts-Win32-vc15-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/7.2/php_7.2.34_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v7.2.34/php-7.2.34-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "7.1.33",
+        "label": "PHP 7.1.33",
+        "lts": false,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-7.1.33-nts-Win32-vc14-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/7.1/php_7.1.33_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v7.1.33/php-7.1.33-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "7.0.33",
+        "label": "PHP 7.0.33",
+        "lts": false,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-7.0.33-nts-Win32-vc14-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/7.0/php_7.0.33_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v7.0.33/php-7.0.33-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "5.6.40",
+        "label": "PHP 5.6.40",
+        "lts": false,
+        "downloads": {
+          "win32": "https://windows.php.net/downloads/releases/php-5.6.40-nts-Win32-vc11-x64.zip",
+          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/5.6/php_5.6.40_arm64.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v5.6.40/php-5.6.40-native-linux-x64.tar.gz"
+        }
+      }
+    ]
+  },
+  {
+    "id": "phpmyadmin",
+    "label": "phpMyAdmin",
+    "icon": "layout-dashboard",
+    "versions": [
+      {
+        "version": "6.0-snapshot",
+        "label": "phpMyAdmin 6.0 (Snapshot)",
+        "downloads": {
+          "win32": "https://files.phpmyadmin.net/snapshots/phpMyAdmin-6.0+snapshot-all-languages.zip",
+          "darwin": "https://files.phpmyadmin.net/snapshots/phpMyAdmin-6.0+snapshot-all-languages.zip",
+          "linux": "https://files.phpmyadmin.net/snapshots/phpMyAdmin-6.0+snapshot-all-languages.zip"
+        }
+      },
+      {
+        "version": "5.2.3",
+        "label": "phpMyAdmin 5.2.3 (Stable)",
+        "lts": true,
+        "downloads": {
+          "win32": "https://files.phpmyadmin.net/phpMyAdmin/5.2.3/phpMyAdmin-5.2.3-all-languages.zip",
+          "darwin": "https://files.phpmyadmin.net/phpMyAdmin/5.2.3/phpMyAdmin-5.2.3-all-languages.zip",
+          "linux": "https://files.phpmyadmin.net/phpMyAdmin/5.2.3/phpMyAdmin-5.2.3-all-languages.zip"
+        }
+      },
+      {
+        "version": "5.2.2",
+        "label": "phpMyAdmin 5.2.2",
+        "downloads": {
+          "win32": "https://files.phpmyadmin.net/phpMyAdmin/5.2.2/phpMyAdmin-5.2.2-all-languages.zip",
+          "darwin": "https://files.phpmyadmin.net/phpMyAdmin/5.2.2/phpMyAdmin-5.2.2-all-languages.zip",
+          "linux": "https://files.phpmyadmin.net/phpMyAdmin/5.2.2/phpMyAdmin-5.2.2-all-languages.zip"
+        }
+      }
+    ]
+  },
+  {
+    "id": "redis",
+    "label": "Redis",
+    "icon": "zap",
+    "versions": [
+      {
+        "version": "7.2.4",
+        "label": "Redis 7.2.4",
+        "lts": true,
+        "downloads": {
+          "win32": "https://github.com/tporadowski/redis/releases/download/v5.0.14.1/Redis-x64-5.0.14.1.zip",
+          "darwin": "https://download.redis.io/releases/redis-7.2.4.tar.gz",
+          "linux": "https://download.redis.io/releases/redis-7.2.4.tar.gz"
+        }
+      }
+    ]
+  },
+  {
+    "id": "mailpit",
+    "label": "Mailpit",
+    "icon": "mail",
+    "versions": [
+      {
+        "version": "1.22.3",
+        "label": "Mailpit 1.22.3",
+        "lts": true,
+        "downloads": {
+          "win32": "https://github.com/axllent/mailpit/releases/download/v1.22.3/mailpit-windows-amd64.zip",
+          "darwin": "https://github.com/axllent/mailpit/releases/download/v1.22.3/mailpit-darwin-arm64.tar.gz",
+          "linux": "https://github.com/axllent/mailpit/releases/download/v1.22.3/mailpit-linux-amd64.tar.gz"
+        }
+      }
+    ]
+  },
+  {
+    "id": "openlitespeed",
+    "label": "OpenLiteSpeed",
+    "icon": "server",
+    "versions": [
+      {
+        "version": "1.7.19",
+        "label": "OpenLiteSpeed 1.7.19",
+        "downloads": {
+          "win32": "https://openlitespeed.org/packages/openlitespeed-1.7.19.tgz",
+          "darwin": "https://openlitespeed.org/packages/openlitespeed-1.7.19.tgz",
+          "linux": "https://openlitespeed.org/packages/openlitespeed-1.7.19.tgz"
+        }
+      }
+    ]
+  },
+  {
+    "id": "apache",
+    "label": "Apache",
+    "icon": "server",
+    "versions": [
+      {
+        "version": "2.4.63",
+        "label": "Apache HTTPD 2.4.63",
+        "lts": true,
+        "downloads": {
+          "win32": "https://www.apachelounge.com/download/VS17/binaries/httpd-2.4.63-win64-VS17.zip",
+          "darwin": "https://archive.apache.org/dist/httpd/httpd-2.4.63.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/apache-v2.4.63/apache-2.4.63-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "2.4.62",
+        "label": "Apache HTTPD 2.4.62",
+        "lts": false,
+        "downloads": {
+          "win32": "https://www.apachelounge.com/download/VS17/binaries/httpd-2.4.62-win64-VS17.zip",
+          "darwin": "https://archive.apache.org/dist/httpd/httpd-2.4.62.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/apache-v2.4.62/apache-2.4.62-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "2.4.61",
+        "label": "Apache HTTPD 2.4.61",
+        "lts": false,
+        "downloads": {
+          "win32": "https://www.apachelounge.com/download/VS17/binaries/httpd-2.4.61-win64-VS17.zip",
+          "darwin": "https://archive.apache.org/dist/httpd/httpd-2.4.61.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/apache-v2.4.61/apache-2.4.61-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "2.4.58",
+        "label": "Apache HTTPD 2.4.58",
+        "lts": true,
+        "downloads": {
+          "win32": "https://www.apachelounge.com/download/VS17/binaries/httpd-2.4.58-win64-VS17.zip",
+          "darwin": "https://archive.apache.org/dist/httpd/httpd-2.4.58.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/apache-v2.4.58/apache-2.4.58-native-linux-x64.tar.gz"
+        }
+      },
+      {
+        "version": "2.4.54",
+        "label": "Apache HTTPD 2.4.54",
+        "lts": false,
+        "downloads": {
+          "win32": "https://www.apachelounge.com/download/VS17/binaries/httpd-2.4.54-win64-VS17.zip",
+          "darwin": "https://archive.apache.org/dist/httpd/httpd-2.4.54.tar.gz",
+          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/apache-v2.4.54/apache-2.4.54-native-linux-x64.tar.gz"
+        }
+      }
+    ]
+  },
+  {
+    "id": "postgresql",
+    "label": "PostgreSQL",
+    "icon": "database",
+    "versions": [
+      {
+        "version": "17.4",
+        "label": "PostgreSQL 17.4 (Latest)",
+        "lts": true,
+        "downloads": {
+          "win32": "https://get.enterprisedb.com/postgresql/postgresql-17.4-1-windows-x64-binaries.zip",
+          "darwin": "https://get.enterprisedb.com/postgresql/postgresql-17.4-1-osx-binaries.zip",
+          "linux": "https://get.enterprisedb.com/postgresql/postgresql-17.4-1-linux-x64-binaries.tar.gz"
+        }
+      },
+      {
+        "version": "16.8",
+        "label": "PostgreSQL 16.8 LTS",
+        "lts": true,
+        "downloads": {
+          "win32": "https://get.enterprisedb.com/postgresql/postgresql-16.8-1-windows-x64-binaries.zip",
+          "darwin": "https://get.enterprisedb.com/postgresql/postgresql-16.8-1-osx-binaries.zip",
+          "linux": "https://get.enterprisedb.com/postgresql/postgresql-16.8-1-linux-x64-binaries.tar.gz"
+        }
+      },
+      {
+        "version": "15.12",
+        "label": "PostgreSQL 15.12",
+        "downloads": {
+          "win32": "https://get.enterprisedb.com/postgresql/postgresql-15.12-1-windows-x64-binaries.zip",
+          "darwin": "https://get.enterprisedb.com/postgresql/postgresql-15.12-1-osx-binaries.zip",
+          "linux": "https://get.enterprisedb.com/postgresql/postgresql-15.12-1-linux-x64-binaries.tar.gz"
+        }
+      }
+    ]
+  },
+  {
+    "id": "mongodb",
+    "label": "MongoDB",
+    "icon": "database",
+    "versions": [
+      {
+        "version": "8.0.5",
+        "label": "MongoDB 8.0.5",
+        "lts": true,
+        "downloads": {
+          "win32": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.5.zip",
+          "darwin": "https://fastdl.mongodb.org/osx/mongodb-macos-x86_64-8.0.5.zip",
+          "linux": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-8.0.5.tgz"
+        }
+      }
+    ]
+  },
+  {
+    "id": "memcached",
+    "label": "Memcached",
+    "icon": "zap",
+    "versions": [
+      {
+        "version": "1.6.22",
+        "label": "Memcached 1.6.22",
+        "lts": true,
+        "downloads": {
+          "win32": "https://github.com/jefyt/memcached-windows/releases/download/1.6.8_mingw_libressl/memcached-1.6.8-win64-mingw.zip",
+          "darwin": "https://www.memcached.org/files/memcached-1.6.22.tar.gz",
+          "linux": "https://www.memcached.org/files/memcached-1.6.22.tar.gz"
+        }
+      },
+      {
+        "version": "1.6.17",
+        "label": "Memcached 1.6.17",
+        "downloads": {
+          "win32": "https://github.com/jefyt/memcached-windows/releases/download/1.6.8_mingw_libressl/memcached-1.6.8-win64-mingw.zip",
+          "darwin": "https://www.memcached.org/files/memcached-1.6.17.tar.gz",
+          "linux": "https://www.memcached.org/files/memcached-1.6.17.tar.gz"
+        }
+      }
+    ]
+  }
+]

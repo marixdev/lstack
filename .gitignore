@@ -1,0 +1,34 @@
+node_modules/
+dist/
+dist-electron/
+.vite/
+out/
+
+# Build outputs / release artifacts
+release/
+release_linux/
+release_deb/
+*.exe
+*.AppImage
+*.deb
+*.blockmap
+*.yml.bak
+
+# Legacy PHP build artifacts
+.legacy-php-build/
+test-php-build/
+
+# electron/ was renamed to main/ - ignore if it still exists (locked by dev server)
+electron/
+
+# Leftover legacy directories
+app/
+docs/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Claude AI local settings (not project config)
+.claude/settings.local.json

@@ -1,0 +1,48 @@
+﻿{
+  "appId": "dev.lstack.app",
+  "productName": "LStack",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist-electron/**/*",
+    "dist/**/*",
+    "package-registry.json"
+  ],
+  "asar": true,
+  "extraResources": [
+    "package-registry.json",
+    { "from": "icon.png", "to": "icon.png" }
+  ],
+  "asarUnpack": [
+    "node_modules/node-pty/**/*"
+  ],
+  "win": {
+    "icon": "icon.png",
+    "target": [
+      "nsis"
+    ]
+  },
+  "linux": {
+    "icon": "icon.png",
+    "target": [
+      "deb",
+      "rpm",
+      "AppImage"
+    ],
+    "category": "Development",
+    "maintainer": "LStack <contact@lstack.dev>"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "include": "build/installer.nsh",
+    "installerSidebar": "build/installer-sidebar.bmp",
+    "uninstallerSidebar": "build/uninstaller-sidebar.bmp",
+    "installerHeader": "build/header.bmp"
+  },
+  "npmRebuild": false,
+  "buildDependenciesFromSource": false
+}

@@ -1,0 +1,361 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Theme Variables ───────────────────────────────────────────────────────── */
+:root {
+  /* Dark theme (default) */
+  --bg-body: #0f172a;
+  --bg-app: #020617;
+  --bg-sidebar: #0f172a;
+  --bg-titlebar: #0f172a;
+  --bg-card: #1e293b;
+  --bg-input: #0f172a;
+  --bg-hover: rgba(30, 41, 59, 0.6);
+  --bg-active: #2563eb;
+  --border-main: rgba(51, 65, 85, 0.8);
+  --border-subtle: rgba(51, 65, 85, 0.5);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-heading: #e2e8f0;
+  --scrollbar-track: #1e293b;
+  --scrollbar-thumb: #334155;
+  --scrollbar-hover: #475569;
+}
+
+:root.light {
+  /* Light theme */
+  --bg-body: #f8fafc;
+  --bg-app: #ffffff;
+  --bg-sidebar: #f1f5f9;
+  --bg-titlebar: #e2e8f0;
+  --bg-card: #ffffff;
+  --bg-input: #f8fafc;
+  --bg-hover: rgba(148, 163, 184, 0.15);
+  --bg-active: #2563eb;
+  --border-main: #cbd5e1;
+  --border-subtle: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-heading: #1e293b;
+  --scrollbar-track: #e2e8f0;
+  --scrollbar-thumb: #94a3b8;
+  --scrollbar-hover: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  overflow: hidden;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
+}
+
+/* ─── Light theme overrides for Tailwind classes ────────────────────────────
+   Complete remap of dark-mode utility classes to light equivalents
+   when .light is active on <html>.
+   Color palette:
+     slate-950 → #ffffff        (page bg)
+     slate-900 → #f8fafc        (sidebar/header/card)
+     slate-800 → #f1f5f9        (secondary surfaces)
+     slate-700 → #e2e8f0        (borders / tertiary surfaces)
+     slate-600 → #cbd5e1        (heavy borders)
+     slate-500 → #94a3b8        (muted text / dividers)
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* ╭─ 1. Background Solids ────────────────────────────────────────────────╮ */
+:root.light .bg-slate-950  { background-color: #ffffff !important; }
+:root.light .bg-slate-900  { background-color: #f8fafc !important; }
+:root.light .bg-slate-800  { background-color: #f1f5f9 !important; }
+:root.light .bg-slate-700  { background-color: #e2e8f0 !important; }
+:root.light .bg-slate-600  { background-color: #cbd5e1 !important; }
+:root.light .bg-slate-500  { background-color: #94a3b8 !important; }
+
+/* ╭─ 2. Background Opacity Variants ─────────────────────────────────────╮ */
+:root.light .bg-slate-950\/80,
+:root.light .bg-slate-950\/30       { background-color: rgba(255,255,255,0.92) !important; }
+:root.light .bg-slate-950\/\[0\.3\] { background-color: rgba(248,250,252,0.5) !important; }
+:root.light .bg-slate-900\/80       { background-color: rgba(248,250,252,0.96) !important; }
+:root.light .bg-slate-900\/50       { background-color: rgba(248,250,252,0.7) !important; }
+:root.light .bg-slate-900\/30       { background-color: rgba(248,250,252,0.5) !important; }
+:root.light .bg-slate-800\/80       { background-color: rgba(241,245,249,0.9) !important; }
+:root.light .bg-slate-800\/50       { background-color: rgba(241,245,249,0.7) !important; }
+:root.light .bg-slate-800\/40       { background-color: rgba(241,245,249,0.6) !important; }
+:root.light .bg-slate-800\/30       { background-color: rgba(241,245,249,0.5) !important; }
+:root.light .bg-slate-800\/20       { background-color: rgba(241,245,249,0.4) !important; }
+:root.light .bg-slate-700\/80       { background-color: rgba(226,232,240,0.85) !important; }
+:root.light .bg-slate-700\/60,
+:root.light .bg-slate-700\/50       { background-color: rgba(226,232,240,0.65) !important; }
+
+/* ╭─ 3. Slate Text Colors ───────────────────────────────────────────────╮ */
+:root.light .text-white     { color: #1e293b !important; }
+:root.light .text-slate-100 { color: #1e293b !important; }
+:root.light .text-slate-200 { color: #334155 !important; }
+:root.light .text-slate-300 { color: #475569 !important; }
+:root.light .text-slate-400 { color: #64748b !important; }
+:root.light .text-slate-500 { color: #94a3b8 !important; }
+:root.light .text-slate-600 { color: #64748b !important; }
+
+/* ╭─ 4. Accent / Semantic Text Colors ───────────────────────────────────╮
+   Dark-mode -400/-300 shades are too faint on white. Darken them.       */
+:root.light .text-amber-300,
+:root.light .text-amber-300\/90 { color: #92400e !important; }  /* amber-800 */
+:root.light .text-amber-400     { color: #b45309 !important; }  /* amber-700 */
+:root.light .text-yellow-400    { color: #a16207 !important; }  /* yellow-700 */
+:root.light .text-orange-400    { color: #c2410c !important; }  /* orange-700 */
+:root.light .text-green-400     { color: #16a34a !important; }  /* green-600 */
+:root.light .text-emerald-400   { color: #059669 !important; }  /* emerald-600 */
+:root.light .text-red-400       { color: #dc2626 !important; }  /* red-600 */
+:root.light .text-blue-200      { color: #2563eb !important; }  /* blue-600 */
+:root.light .text-blue-300      { color: #2563eb !important; }  /* blue-600 */
+:root.light .text-blue-400      { color: #2563eb !important; }  /* blue-600 */
+:root.light .text-blue-400\/80  { color: #2563eb !important; }
+:root.light .text-sky-400       { color: #0284c7 !important; }  /* sky-600 */
+
+/* ╭─ 5. Semantic Background Tints ───────────────────────────────────────╮
+   Strengthen translucent color tints so they're visible on white.       */
+:root.light .bg-amber-400\/10  { background-color: rgba(245,158,11,0.12) !important; }
+:root.light .bg-amber-500\/10  { background-color: rgba(245,158,11,0.12) !important; }
+:root.light .bg-emerald-400\/10{ background-color: rgba(16,185,129,0.12) !important; }
+:root.light .bg-emerald-500\/10{ background-color: rgba(16,185,129,0.12) !important; }
+:root.light .bg-red-500\/10    { background-color: rgba(239,68,68,0.10) !important; }
+:root.light .bg-blue-500\/10   { background-color: rgba(59,130,246,0.10) !important; }
+:root.light .bg-blue-500\/20   { background-color: rgba(59,130,246,0.12) !important; }
+:root.light .bg-blue-600\/5    { background-color: rgba(37,99,235,0.06) !important; }
+:root.light .bg-blue-600\/10   { background-color: rgba(37,99,235,0.10) !important; }
+:root.light .bg-green-500\/20  { background-color: rgba(34,197,94,0.12) !important; }
+
+/* ╭─ 6. Semantic Border Tints ───────────────────────────────────────────╮ */
+:root.light .border-amber-500\/20  { border-color: #fbbf24 !important; }  /* amber-400 */
+:root.light .border-amber-500\/30  { border-color: #fbbf24 !important; }
+:root.light .border-emerald-500\/20{ border-color: #6ee7b7 !important; }  /* emerald-300 */
+:root.light .border-red-500\/20    { border-color: #fca5a5 !important; }  /* red-300 */
+:root.light .border-red-500\/30    { border-color: #fca5a5 !important; }
+:root.light .border-blue-500\/10   { border-color: #93c5fd !important; }  /* blue-300 */
+:root.light .border-blue-500\/20   { border-color: #93c5fd !important; }
+:root.light .border-blue-500\/50   { border-color: #60a5fa !important; }  /* blue-400 */
+
+/* ╭─ 7. Slate Border Colors ────────────────────────────────────────────╮ */
+:root.light .border-slate-800,
+:root.light .border-slate-800\/50,
+:root.light .border-slate-800\/70 { border-color: #e2e8f0 !important; }
+:root.light .border-slate-700,
+:root.light .border-slate-700\/80,
+:root.light .border-slate-700\/60,
+:root.light .border-slate-700\/50 { border-color: #cbd5e1 !important; }
+:root.light .border-slate-600     { border-color: #cbd5e1 !important; }
+
+/* ╭─ 8. Divide Colors ──────────────────────────────────────────────────╮ */
+:root.light .divide-slate-800\/30 > :not([hidden]) ~ :not([hidden]),
+:root.light .divide-slate-800\/60 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #e2e8f0 !important;
+}
+
+/* ╭─ 9. Hover Backgrounds ──────────────────────────────────────────────╮ */
+:root.light .hover\:bg-slate-800:hover    { background-color: #e2e8f0 !important; }
+:root.light .hover\:bg-slate-800\/60:hover{ background-color: #e2e8f0 !important; }
+:root.light .hover\:bg-slate-800\/40:hover,
+:root.light .hover\:bg-slate-800\/30:hover,
+:root.light .hover\:bg-slate-800\/20:hover{ background-color: rgba(226,232,240,0.6) !important; }
+:root.light .hover\:bg-slate-700:hover    { background-color: #e2e8f0 !important; }
+:root.light .hover\:bg-slate-700\/80:hover{ background-color: rgba(226,232,240,0.9) !important; }
+:root.light .hover\:bg-slate-700\/60:hover,
+:root.light .hover\:bg-slate-700\/50:hover{ background-color: rgba(226,232,240,0.8) !important; }
+:root.light .hover\:bg-slate-600:hover    { background-color: #cbd5e1 !important; }
+/* Colored hover tints (keep readable text via section 13) */
+:root.light .hover\:bg-blue-600\/10:hover { background-color: rgba(37,99,235,0.08) !important; }
+:root.light .hover\:bg-red-500\/10:hover  { background-color: rgba(239,68,68,0.08) !important; }
+
+/* ╭─ 10. Hover Text ────────────────────────────────────────────────────╮ */
+:root.light .hover\:text-white:hover     { color: #0f172a !important; }
+:root.light .hover\:text-slate-100:hover { color: #1e293b !important; }
+:root.light .hover\:text-slate-200:hover { color: #1e293b !important; }
+:root.light .hover\:text-slate-300:hover { color: #334155 !important; }
+:root.light .hover\:text-blue-300:hover  { color: #1d4ed8 !important; }  /* blue-700 */
+:root.light .hover\:text-blue-400:hover  { color: #2563eb !important; }  /* blue-600 */
+:root.light .hover\:text-red-400:hover   { color: #dc2626 !important; }  /* red-600 */
+
+/* ╭─ 11. Hover Borders ─────────────────────────────────────────────────╮ */
+:root.light .hover\:border-slate-600:hover { border-color: #94a3b8 !important; }
+:root.light .hover\:border-slate-700:hover { border-color: #cbd5e1 !important; }
+:root.light .hover\:border-red-500\/30:hover  { border-color: #fca5a5 !important; }
+:root.light .hover\:border-blue-500\/50:hover { border-color: #60a5fa !important; }
+
+/* ╭─ 12. Group-Hover ───────────────────────────────────────────────────╮ */
+:root.light .group-hover\:text-blue-300  { color: #2563eb !important; }
+:root.light .group-hover\:text-white     { color: #0f172a !important; }
+
+/* ╭─ 13. Colored Buttons — Keep White Text ──────────────────────────────╮
+   These MUST come AFTER sections 3 & 10 so they win specificity ties.  */
+:root.light .bg-blue-600,
+:root.light .bg-blue-500        { color: #ffffff !important; }
+:root.light .bg-blue-600 *,
+:root.light .bg-blue-500 *      { color: inherit !important; }
+:root.light .bg-green-600,
+:root.light .bg-green-500       { color: #ffffff !important; }
+:root.light .bg-green-600 *,
+:root.light .bg-green-500 *     { color: inherit !important; }
+:root.light .bg-red-700,
+:root.light .bg-red-600,
+:root.light .bg-red-500         { color: #ffffff !important; }
+:root.light .bg-red-700 *,
+:root.light .bg-red-600 *,
+:root.light .bg-red-500 *       { color: inherit !important; }
+
+/* Colored hover backgrounds — text stays white */
+:root.light .hover\:bg-blue-600:hover,
+:root.light .hover\:bg-blue-500:hover   { color: #ffffff !important; }
+:root.light .hover\:bg-blue-600:hover *,
+:root.light .hover\:bg-blue-500:hover * { color: #ffffff !important; }
+:root.light .hover\:bg-red-600:hover,
+:root.light .hover\:bg-red-500:hover    { color: #ffffff !important; }
+:root.light .hover\:bg-red-600:hover *,
+:root.light .hover\:bg-red-500:hover *  { color: #ffffff !important; }
+:root.light .hover\:bg-green-600:hover,
+:root.light .hover\:bg-green-500:hover  { color: #ffffff !important; }
+:root.light .hover\:bg-green-600:hover *,
+:root.light .hover\:bg-green-500:hover *{ color: #ffffff !important; }
+
+/* ╭─ 14. Input Fields ──────────────────────────────────────────────────╮ */
+:root.light input,
+:root.light select,
+:root.light textarea {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+:root.light input::placeholder,
+:root.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+:root.light input:focus,
+:root.light select:focus,
+:root.light textarea:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.15) !important;
+}
+:root.light .focus-within\:border-slate-700:focus-within {
+  border-color: #94a3b8 !important;
+}
+:root.light .placeholder\:text-slate-500::placeholder,
+:root.light .placeholder\:text-slate-600::placeholder {
+  color: #94a3b8 !important;
+}
+/* Checkbox styling */
+:root.light input[type="checkbox"] {
+  accent-color: #2563eb;
+}
+
+/* ╭─ 15. Modal / Overlay Backdrops ─────────────────────────────────────╮ */
+:root.light .bg-black\/50,
+:root.light .bg-black\/60 { background-color: rgba(15,23,42,0.25) !important; }
+
+/* ╭─ 16. Shadows (softer for light theme) ──────────────────────────────╮ */
+:root.light .shadow-sm  { box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important; }
+:root.light .shadow-lg  { box-shadow: 0 4px 12px -2px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.04) !important; }
+:root.light .shadow-xl  { box-shadow: 0 8px 25px -5px rgba(0,0,0,0.08), 0 4px 10px -6px rgba(0,0,0,0.04) !important; }
+:root.light .shadow-2xl { box-shadow: 0 12px 40px -12px rgba(0,0,0,0.10) !important; }
+
+/* ╭─ 17. Backdrop Blur Panels ──────────────────────────────────────────╮ */
+:root.light .backdrop-blur-xl { background-color: rgba(248,250,252,0.88) !important; }
+
+/* ╭─ 18. Project Action Buttons ────────────────────────────────────────╮
+   In dark mode these use bg-slate-800 which maps to nearly-white #f1f5f9,
+   making them invisible. Give them a visible white card + border.        */
+:root.light .group .bg-slate-800 {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+}
+:root.light .group .bg-slate-800:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+/* Colored hovers inside .group must override the generic slate hover above */
+:root.light .group .hover\:bg-blue-600:hover {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+  color: #ffffff !important;
+}
+:root.light .group .hover\:bg-blue-600:hover * { color: #ffffff !important; }
+:root.light .group .hover\:bg-red-500:hover {
+  background-color: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: #ffffff !important;
+}
+:root.light .group .hover\:bg-red-500:hover * { color: #ffffff !important; }
+
+/* ╭─ 19. Focus Ring Colors ─────────────────────────────────────────────╮ */
+:root.light .focus\:ring-blue-500\/50:focus,
+:root.light .focus\:ring-blue-500\/40:focus {
+  --tw-ring-color: rgba(59,130,246,0.25) !important;
+}
+:root.light .ring-blue-500\/50 {
+  --tw-ring-color: rgba(59,130,246,0.25) !important;
+}
+
+/* ╭─ 20. Scrollbar ─────────────────────────────────────────────────────╮ */
+:root.light ::-webkit-scrollbar-track { background: #f1f5f9 !important; }
+:root.light ::-webkit-scrollbar-thumb { background: #cbd5e1 !important; }
+:root.light ::-webkit-scrollbar-thumb:hover { background: #94a3b8 !important; }
+
+/* ╭─ 21. Status Pill Colors ────────────────────────────────────────────╮
+   Tailwind green/red/blue/emerald base classes keep their hue but
+   lighten the background tints for readability.                          */
+:root.light .bg-green-500\/10 { background-color: rgba(34,197,94,0.10) !important; }
+:root.light .bg-green-400     { background-color: #22c55e !important; }  /* keep vivid */
+
+/* ╭─ 22. Toast ─────────────────────────────────────────────────────────╮ */
+:root.light .border-emerald-500\/30 { border-color: #6ee7b7 !important; }
+:root.light .border-amber-500\/30   { border-color: #fcd34d !important; }
+:root.light .border-red-500\/30     { border-color: #fca5a5 !important; }
+:root.light .border-blue-500\/30    { border-color: #93c5fd !important; }
+
+/* Toast text should be dark */
+:root.light .bg-emerald-500\/10 .text-slate-200,
+:root.light .bg-red-500\/10 .text-slate-200,
+:root.light .bg-amber-500\/10 .text-slate-200,
+:root.light .bg-blue-500\/10 .text-slate-200 { color: #334155 !important; }
+
+/* ╭─ 23. Gradient Adjustments ──────────────────────────────────────────╮ */
+:root.light .from-blue-500\/20 { --tw-gradient-from: rgba(59,130,246,0.08) !important; }
+:root.light .to-sky-500\/20    { --tw-gradient-to: rgba(14,165,233,0.08) !important; }
+
+.status-running {
+  @apply bg-green-500;
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+.status-stopped { @apply bg-slate-500; }
+.status-starting { @apply bg-yellow-500; animation: pulse 1s ease-in-out infinite; }
+.status-stopping { @apply bg-orange-500; animation: pulse 1s ease-in-out infinite; }
+.status-error { @apply bg-red-500; }
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
