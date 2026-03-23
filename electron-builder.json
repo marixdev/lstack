@@ -20,7 +20,7 @@
   "win": {
     "icon": "icon.png",
     "target": [
-      "nsis"
+      "dir"
     ]
   },
   "linux": {
@@ -32,21 +32,6 @@
     ],
     "category": "Development",
     "maintainer": "LStack <contact@lstack.dev>"
-  },
-  "nsis": {
-    "oneClick": false,
-    "perMachine": false,
-    "allowElevation": true,
-    "allowToChangeInstallationDirectory": true,
-    "createDesktopShortcut": true,
-    "createStartMenuShortcut": true,
-    "shortcutName": "LStack",
-    "installerSidebar": "build/installer-sidebar.bmp",
-    "uninstallerSidebar": "build/uninstaller-sidebar.bmp",
-    "installerHeader": "build/header.bmp",
-    "include": "build/installer.nsh",
-    "warningsAsErrors": false,
-    "unicode": true
   },
   "npmRebuild": false,
   "buildDependenciesFromSource": false

@@ -17,11 +17,11 @@ $ErrorActionPreference = "Stop"
 # Derive root from script location (build/ → parent = repo root)
 $RootDir = (Resolve-Path "$PSScriptRoot\..").Path
 
-if (-not $WinUnpacked) { $WinUnpacked = "$RootDir\release_test\win-unpacked" }
-if (-not $OutDir)      { $OutDir      = "$RootDir\release_test\wpf-test" }
+if (-not $WinUnpacked) { $WinUnpacked = "$RootDir\release\win-unpacked" }
+if (-not $OutDir)      { $OutDir      = "$RootDir\dist\win-installer" }
 
-$InstallerProj = "$RootDir\installer\LStackInstaller.csproj"
-$InstallerDir  = "$RootDir\installer"
+$InstallerProj = "$RootDir\win-setup\LStackInstaller.csproj"
+$InstallerDir  = "$RootDir\win-setup"
 $PayloadZip    = "$InstallerDir\payload.zip"
 $FinalExe      = "$OutDir\LStack Setup.exe"
 
@@ -78,7 +78,7 @@ Write-Host "  Built: $exeMB MB`n"
 # 3. Cleanup temp zip from source tree
 Write-Host "[3/3] Cleaning up..." -ForegroundColor Yellow
 Remove-Item $PayloadZip -Force -ErrorAction SilentlyContinue
-Write-Host "  Removed payload.zip from installer/`n"
+Write-Host "  Removed payload.zip from win-setup/`n"
 
 # Done
 Write-Host "=== Done! ===" -ForegroundColor Green

@@ -62,7 +62,7 @@ jobs:
 
       - name: Rename installer with version
         run: |
-          $src = "release_test\wpf-test\LStack Setup.exe"
+          $src = "dist\win-installer\LStack Setup.exe"
           $dst = "LStack-${{ needs.prepare.outputs.version }}-Setup.exe"
           Move-Item $src $dst
         shell: pwsh
