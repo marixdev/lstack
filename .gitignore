@@ -8,11 +8,28 @@ out/
 release/
 release_linux/
 release_deb/
+release_test/
+release_win/
 *.exe
 *.AppImage
 *.deb
 *.blockmap
 *.yml.bak
+
+# Build temp files
+build/lstack-cache/
+build/*.bmp
+build/*.aip
+build/lstack-template.aip
+build/build-stderr.txt
+build/build-stdout.txt
+build/help.txt
+build/helperr.txt
+lstack-installer.nsi
+installer/payload.zip
+installer/obj/
+installer/bin/
+installer/publish/
 
 # Legacy PHP build artifacts
 .legacy-php-build/

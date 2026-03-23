@@ -36,23 +36,42 @@ jobs:
     needs: prepare
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
 
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
       - name: Install dependencies
         run: npm install
 
-      - name: Build Vite + package Windows
-        run: npm run dist:win
+      - name: Build Electron app (unpacked only)
+        run: npx vite build && npx electron-builder --win --dir
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Windows artifacts
+      - name: Build WPF installer (embedded payload)
+        run: |
+          .\build\build-wpf-installer.ps1 `
+            -AppVersion "${{ needs.prepare.outputs.version }}" `
+            -WinUnpacked "${{ github.workspace }}\release\win-unpacked"
+        shell: pwsh
+
+      - name: Rename installer with version
+        run: |
+          $src = "release_test\wpf-test\LStack Setup.exe"
+          $dst = "LStack-${{ needs.prepare.outputs.version }}-Setup.exe"
+          Move-Item $src $dst
+        shell: pwsh
+
+      - name: Upload Windows installer
         uses: actions/upload-artifact@v4
         with:
           name: lstack-windows-${{ needs.prepare.outputs.version }}
-          path: release/*.exe
+          path: LStack-${{ needs.prepare.outputs.version }}-Setup.exe
 
   # ─── Linux build ─────────────────────────────────────────────────────────────
   build-linux:
@@ -60,6 +79,7 @@ jobs:
     needs: prepare
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -80,7 +100,7 @@ jobs:
         run: npx electron-rebuild -f -m node_modules/node-pty
 
       - name: Build Vite + package Linux
-        run: npm run dist:linux
+        run: npx vite build && npx electron-builder --linux AppImage deb
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -91,7 +111,6 @@ jobs:
           path: |
             release/*.AppImage
             release/*.deb
-            release/*.rpm
 
   # ─── Create GitHub release ───────────────────────────────────────────────────
   release:
@@ -120,6 +139,5 @@ jobs:
             dist-release/*.exe
             dist-release/*.AppImage
             dist-release/*.deb
-            dist-release/*.rpm
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
