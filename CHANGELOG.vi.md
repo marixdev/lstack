@@ -7,6 +7,20 @@ Bản tiếng Anh: [CHANGELOG.md](CHANGELOG.md)
 
 ---
 
+## [1.0.1] - 2026-03-27
+
+### Thay đổi
+- Loại bỏ các PHP profile mặc định theo framework (WordPress, Laravel, Symfony, CodeIgniter, Full Stack). Mỗi dự án giờ sẽ tự tạo profile riêng từ giao diện.
+- Đổi tên profile built-in còn lại từ "Minimal" thành "Default" với bộ extension đầy đủ hơn (gd, intl, sodium, mysqli, pdo_sqlite).
+
+### Sửa lỗi
+- Xoá PHP 8.6 khỏi danh sách package (phiên bản chưa tồn tại).
+- Sửa lỗi domain `.test` không hoạt động trên một số máy Windows 10 do ghi file hosts thất bại. Thêm cơ chế kiểm tra và ghi lại.
+- Sửa lỗi header bảng trong Port Manager hiển thị nền đen ở chế độ light.
+- Loại bỏ file `latest-linux.yml` khỏi GitHub Releases.
+
+---
+
 ## [1.0.0] - 2026-03-23
 
 Phiên bản ổn định đầu tiên của LStack.

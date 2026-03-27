@@ -1,6 +1,6 @@
 {
   "name": "lstack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Local development environment for Windows and Linux",
   "main": "dist-electron/main.js",
   "scripts": {

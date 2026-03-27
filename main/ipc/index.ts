@@ -280,12 +280,7 @@ export function registerIpcHandlers(ctx: IpcContext) {
     return 0;
   };
 
-  const getDefaultProfileForFramework = (fw: string): string =>
-    fw === 'wordpress' ? 'wordpress'
-      : fw === 'laravel' ? 'laravel'
-      : fw === 'symfony' ? 'symfony'
-      : fw === 'codeigniter' ? 'codeigniter'
-      : 'minimal';
+  const getDefaultProfileForFramework = (_fw: string): string => 'minimal';
 
   const getPhpVersionForFramework = (fw: string, fwVersion?: string): string => {
     if (fw === 'laravel') {

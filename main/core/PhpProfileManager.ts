@@ -3,104 +3,27 @@ import fs from 'fs-extra';
 import type { LStackSettings, PhpProfile, VHostPhpSettings } from '../../src/types';
 
 // ─── Built-in PHP Profiles ──────────────────────────────────────────────────
+// Only the "minimal" profile is built-in. It serves as the default PHP-FPM
+// process for localhost.test, phpmyadmin.test, and new projects.
+// Users create project-specific profiles from the UI.
 export const BUILT_IN_PROFILES: PhpProfile[] = [
   {
     id: 'minimal',
-    name: 'Minimal',
-    description: 'Core extensions for simple PHP apps',
-    isBuiltIn: true,
-    phpVersion: '8.5.4',
-    phpSettings: {
-      memory_limit: '256M',
-      max_execution_time: 60,
-      max_input_time: 60,
-      max_input_vars: 5000,
-      upload_max_filesize: '64M',
-      post_max_size: '64M',
-    },
-    phpExtensions: ['curl', 'fileinfo', 'mbstring', 'openssl', 'pdo_mysql', 'zip'],
-  },
-  {
-    id: 'wordpress',
-    name: 'WordPress',
-    description: 'Recommended for WordPress and common plugins',
+    name: 'Default',
+    description: 'Default PHP-FPM profile for all projects',
     isBuiltIn: true,
     phpVersion: '8.5.4',
     phpSettings: {
       memory_limit: '512M',
-      max_execution_time: 300,
-      max_input_time: 300,
-      max_input_vars: 10000,
-      upload_max_filesize: '256M',
-      post_max_size: '256M',
-    },
-    phpExtensions: ['curl', 'fileinfo', 'gd', 'mbstring', 'mysqli', 'openssl', 'pdo_mysql', 'zip', 'exif'],
-  },
-  {
-    id: 'laravel',
-    name: 'Laravel',
-    description: 'Balanced profile for Laravel projects',
-    isBuiltIn: true,
-    phpVersion: '8.5.4',
-    phpSettings: {
-      memory_limit: '512M',
-      max_execution_time: 120,
-      max_input_time: 120,
-      max_input_vars: 10000,
-      upload_max_filesize: '128M',
-      post_max_size: '128M',
-    },
-    phpExtensions: ['curl', 'fileinfo', 'gd', 'mbstring', 'openssl', 'pdo_mysql', 'pdo_sqlite', 'zip', 'intl', 'sodium'],
-  },
-  {
-    id: 'symfony',
-    name: 'Symfony',
-    description: 'Recommended profile for Symfony applications',
-    isBuiltIn: true,
-    phpVersion: '8.5.4',
-    phpSettings: {
-      memory_limit: '512M',
-      max_execution_time: 120,
-      max_input_time: 120,
-      max_input_vars: 10000,
-      upload_max_filesize: '128M',
-      post_max_size: '128M',
-    },
-    phpExtensions: ['curl', 'fileinfo', 'intl', 'mbstring', 'openssl', 'pdo_mysql', 'pdo_sqlite', 'xml', 'zip'],
-  },
-  {
-    id: 'codeigniter',
-    name: 'CodeIgniter',
-    description: 'Balanced profile for CodeIgniter projects',
-    isBuiltIn: true,
-    phpVersion: '8.5.4',
-    phpSettings: {
-      memory_limit: '256M',
       max_execution_time: 120,
       max_input_time: 120,
       max_input_vars: 5000,
-      upload_max_filesize: '64M',
-      post_max_size: '64M',
-    },
-    phpExtensions: ['curl', 'fileinfo', 'intl', 'mbstring', 'mysqli', 'openssl', 'pdo_mysql', 'zip'],
-  },
-  {
-    id: 'full',
-    name: 'Full Stack',
-    description: 'Broader extension set for complex apps',
-    isBuiltIn: true,
-    phpVersion: '8.5.4',
-    phpSettings: {
-      memory_limit: '1024M',
-      max_execution_time: 300,
-      max_input_time: 300,
-      max_input_vars: 20000,
-      upload_max_filesize: '512M',
-      post_max_size: '512M',
+      upload_max_filesize: '128M',
+      post_max_size: '128M',
     },
     phpExtensions: [
-      'curl', 'fileinfo', 'gd', 'mbstring', 'mysqli', 'openssl',
-      'pdo_mysql', 'pdo_sqlite', 'zip', 'exif', 'intl', 'soap', 'sodium', 'xsl',
+      'curl', 'fileinfo', 'gd', 'intl', 'mbstring', 'mysqli', 'openssl',
+      'pdo_mysql', 'pdo_sqlite', 'zip', 'sodium',
     ],
   },
 ];
@@ -230,22 +153,9 @@ export class PhpProfileManager {
     await fs.writeJson(this.profilesFile, filtered, { spaces: 2 });
   }
 
-  async detectRecommendedProfile(projectDir: string): Promise<string> {
-    if (
-      await fs.pathExists(path.join(projectDir, 'wp-config.php')) ||
-      await fs.pathExists(path.join(projectDir, 'wp-login.php'))
-    ) {
-      return 'wordpress';
-    }
-    if (await fs.pathExists(path.join(projectDir, 'artisan'))) {
-      return 'laravel';
-    }
-    if (await fs.pathExists(path.join(projectDir, 'symfony.lock'))) {
-      return 'symfony';
-    }
-    if (await fs.pathExists(path.join(projectDir, 'spark'))) {
-      return 'codeigniter';
-    }
+  async detectRecommendedProfile(_projectDir: string): Promise<string> {
+    // All projects use the default (minimal) profile initially.
+    // Users can create and assign a custom profile per project from the UI.
     return 'minimal';
   }
 

@@ -7,6 +7,20 @@ Vietnamese version: [CHANGELOG.vi.md](CHANGELOG.vi.md)
 
 ---
 
+## [1.0.1] - 2026-03-27
+
+### Changed
+- Removed framework-specific built-in PHP profiles (WordPress, Laravel, Symfony, CodeIgniter, Full Stack). Each project now creates its own custom profile from the UI.
+- Renamed the remaining built-in profile from "Minimal" to "Default" with a broader extension set (gd, intl, sodium, mysqli, pdo_sqlite).
+
+### Fixed
+- Removed PHP 8.6 from the package registry (version does not exist).
+- Fixed `.test` domain resolution on some Windows 10 machines where the hosts file write would silently fail. Added retry logic and verification.
+- Fixed light-mode table header in Port Manager showing a dark band (missing `bg-slate-900/90` CSS override).
+- Removed `latest-linux.yml` auto-update metadata from GitHub Releases.
+
+---
+
 ## [1.0.0] - 2026-03-23
 
 First stable release of LStack.
