@@ -1212,20 +1212,38 @@ class HostsEditor {
 
     const entry = `\n${ip}\t${hostname}\t# LStack`;
 
+    // Attempt 1: direct write (works when app is running as admin)
     try {
       await fs.appendFile(this.hostsPath, entry);
-      return;
+      // Verify the write actually persisted (some AV/Defender may block silently)
+      const verify = await fs.readFile(this.hostsPath, 'utf-8').catch(() => '');
+      if (verify.includes(hostname)) return;
     } catch { /* need elevation */ }
 
     if (process.platform === 'win32') {
-      const line = `${ip}\\t${hostname}\\t# LStack`;
-      const cmd = `Add-Content -Path '${this.hostsPath}' -Value '${line}' -Encoding UTF8`;
+      // Attempt 2: cmd.exe echo (works on most Win10 when app is elevated)
+      try {
+        await new Promise<void>((resolve, reject) => {
+          const { exec } = require('child_process');
+          const line = `${ip}  ${hostname}  # LStack`;
+          exec(`echo. >> "${this.hostsPath}" && echo ${line} >> "${this.hostsPath}"`,
+            { windowsHide: true },
+            (err: Error | null) => err ? reject(err) : resolve(),
+          );
+        });
+        const verify = await fs.readFile(this.hostsPath, 'utf-8').catch(() => '');
+        if (verify.includes(hostname)) return;
+      } catch { /* try elevation */ }
+
+      // Attempt 3: PowerShell with UAC elevation
+      const psLine = `\"${ip}  ${hostname}  # LStack\"`;
+      const psCmd = `Add-Content -Path '${this.hostsPath}' -Value ${psLine} -Encoding UTF8`;
       await new Promise<void>((resolve, reject) => {
         const { spawn } = require('child_process');
         const proc = spawn(
           'powershell',
           ['-NoProfile', '-Command',
-            `Start-Process powershell -Verb RunAs -Wait -WindowStyle Hidden -ArgumentList "-NoProfile -Command \\"${cmd}\\""`],
+            `Start-Process powershell -Verb RunAs -Wait -WindowStyle Hidden -ArgumentList '-NoProfile','-Command','${psCmd}'`],
           { shell: false, windowsHide: true },
         );
         proc.on('exit', (code: number) => code === 0 ? resolve() : reject(new Error(`Exit ${code}`)));
@@ -1234,6 +1252,7 @@ class HostsEditor {
       return;
     }
 
+    // Linux / macOS: sudo tee
     await new Promise<void>((resolve, reject) => {
       const { spawn } = require('child_process');
       const proc = spawn(

@@ -117,16 +117,6 @@
     "icon": "code",
     "versions": [
       {
-        "version": "8.6.0",
-        "label": "PHP 8.6.0",
-        "lts": false,
-        "downloads": {
-          "win32": "https://windows.php.net/downloads/releases/php-8.6.0-nts-Win32-vs16-x64.zip",
-          "darwin": "https://github.com/shivammathur/php-builder-macos/releases/download/8.6/php_8.6.0_arm64.tar.gz",
-          "linux": "https://github.com/marixdev/lstack-binaries/releases/download/php-v8.6.0/php-8.6.0-native-linux-x64.tar.gz"
-        }
-      },
-      {
         "version": "8.5.4",
         "label": "PHP 8.5.4",
         "lts": false,
