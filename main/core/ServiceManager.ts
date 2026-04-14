@@ -74,13 +74,12 @@ const SERVICE_CONFIGS: Record<ServiceName, ServiceConfig> = {
     getBinary: (binDir, version) =>
       path.join(binDir, 'mariadb', `mariadb-${version}`, 'bin', `mariadbd${EXE}`),
     getArgs: (settings) => [
+      `--defaults-extra-file=${path.join(settings.dataDir, 'data', 'mariadb', 'my.ini')}`,
       `--datadir=${path.join(settings.dataDir, 'data', 'mariadb')}`,
       `--port=${settings.mariadbPort}`,
       `--socket=${path.join(settings.dataDir, 'tmp', 'mariadb.sock')}`,
-      '--bind-address=127.0.0.1',
-      '--skip-networking=OFF',
-      '--character-set-server=utf8mb4',
-      '--collation-server=utf8mb4_unicode_ci',
+      `--character-set-server=utf8mb4`,
+      `--collation-server=utf8mb4_unicode_ci`,
     ],
     port: (s) => s.mariadbPort,
     version: (s) => s.mariadbVersion,
